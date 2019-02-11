@@ -13,11 +13,11 @@ const sectionStyle = {
 	fontSize: '1em',
 	fontFamily: 'Roboto'
 };
-function TodoItem(){
+function TodoItem(props){
 	return(
 		<div style = { sectionStyle }>
 			<input style = {checkboxStyle} name = "chore" type = "checkbox"/>
-			<label style = {labelStyle} for = "chore"> My Chore </label>
+			<label style = {labelStyle} for = "chore"> {!props.obj.chore ? "No Chores!" : props.obj.chore} </label>
 			<hr/>
 		</div>
 	)
