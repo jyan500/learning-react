@@ -13,14 +13,19 @@ const sectionStyle = {
 	fontSize: '1em',
 	fontFamily: 'Roboto'
 };
+const lineThrough = {
+	padding: '10px',
+	color: 'black',
+	textDecoration: 'line-through',
+	fontStyle : 'italic'
+}
 function TodoItem(props){
 	return(
 		<div style = { sectionStyle }>
-			<input style = {checkboxStyle} name = "chore" type = "checkbox"/>
-			<label style = {labelStyle} for = "chore"> {!props.obj.chore ? "No Chores!" : props.obj.chore} </label>
+			<input style = {checkboxStyle}  type = "checkbox" checked = {props.checked} onChange = {() => props.handleChange(props.item.id)} />
+			<label style = {props.checked ? lineThrough : labelStyle}> {props.item.chore} </label>
 			<hr/>
 		</div>
-	)
+	)	
 }
-
 export default TodoItem

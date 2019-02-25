@@ -1,28 +1,28 @@
 import React from 'react';
 
-function Inventory(props){
-	const imageStyle = {
-		width: '200px',
-		height : '200px'
-	};
-	const divStyle = {
-		display : 'inline-block',
-		padding : '10px',
-		margin : '10px',
-		backgroundColor: 'whitesmoke',
+const imageStyle = {
+	width: '200px',
+	height : '200px'
+};
+const divStyle = {
+	display : 'inline-block',
+	padding : '20px',
+	margin : '10px',
+	backgroundColor: 'whitesmoke',
+	fontFamily: 'Roboto',
+};
+class Inventory extends React.Component{
+	render(){
+		return (
+			<div style = {divStyle}>
+				<img style = {imageStyle} src = {this.props.info.url}/>		
+				<h2>{this.props.info.name}</h2>
+				<p> Price: {this.props.info.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} </p>
+				<p> Weight: {this.props.info.weight} grams </p>
+				<p> In Stock: {this.props.info.quantity} </p>
+			</div>
+		)	
 	}
-	const textStyle = {
-		fontFamily: 'Roboto',
-		fontSize: '20px' 
-	}
-	return (
-		<div style = {divStyle} >
-			<img style = {imageStyle} src = {props.info.url}/>
-			<h2 style = {textStyle} >{props.info.name}</h2>		
-			<p style = {textStyle}> Price: {props.info.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })} </p>
-			<p style = {textStyle}> Weight: {props.info.weight} grams </p>
-			<p style = {textStyle}> In Stock: {props.info.quantity} </p>
-		</div>
-	)
 }
+
 export default Inventory
